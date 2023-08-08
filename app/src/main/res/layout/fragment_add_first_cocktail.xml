@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.fragments.AddFirstCocktailFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -75,21 +75,25 @@
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/arrow_animation" />
 
-    <ImageButton
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/bt_add_first"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:layout_marginTop="16dp"
 
+        android:backgroundTint="@color/bt_background"
+        android:clickable="true"
         android:contentDescription="@string/content_description"
-        android:src="@drawable/ic_add_bt"
-        android:background="@drawable/bt_background"
+        android:foregroundTint="@color/white"
 
+        android:src="@drawable/ic_add_bt"
+        app:fabCustomSize="80dp"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lav_arrow"
-        android:layout_marginTop="16dp"
-        android:clickable="true"
+        app:tint="@color/white" />
 
-        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

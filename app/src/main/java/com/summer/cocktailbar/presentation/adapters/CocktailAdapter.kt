@@ -27,7 +27,7 @@ class CocktailAdapter():RecyclerView.Adapter<CocktailAdapter.CocktailViewHolder>
 
         holder.binding.clCocktailItem.setOnClickListener {
 
-            //
+
         }
 
     }

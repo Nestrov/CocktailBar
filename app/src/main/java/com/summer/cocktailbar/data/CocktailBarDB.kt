@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [CocktailDBData::class, IngredientDBData::class], version = 1, exportSchema = false)
+@Database(entities = [CocktailDBData::class, IngredientDBData::class], version = 2, exportSchema = false)
 abstract class CocktailBarDB:RoomDatabase() {
     abstract fun cocktailBarDao():CocktailBarDao
 
