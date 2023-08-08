@@ -3,41 +3,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cl_cocktail_item"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:cardCornerRadius="46dp"
+    android:layout_width="160dp"
+    android:layout_height="160dp"
+    android:layout_margin="4dp"
     android:clickable="true"
     android:focusable="true"
-    android:layout_margin="4dp">
+    app:cardCornerRadius="54dp">
 
 
-        <ImageView
-            android:id="@+id/iv_preview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/content_description"
-            tools:src="@tools:sample/avatars"
-            android:layout_gravity="center"
-            />
+    <ImageView
+        android:id="@+id/iv_preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:contentDescription="@string/content_description"
+        tools:src="@tools:sample/avatars" />
 
-        <TextView
-            android:id="@+id/tv_cocktail_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+    <TextView
+        android:id="@+id/tv_cocktail_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
 
-            android:layout_gravity="bottom|center_horizontal"
-            android:layout_margin="16dp"
-            android:fontFamily="@font/didact_gothic"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_margin="16dp"
+        android:fontFamily="@font/didact_gothic"
 
-            android:gravity="center"
-            android:text="@string/cocktail_name"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center"
+        android:text="@string/cocktail_name"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
 
-            app:layout_constraintStart_toStartOf="parent" />
-
-
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.cardview.widget.CardView>
