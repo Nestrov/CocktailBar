@@ -6,11 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.summer.cocktailbar.R
-
+import com.summer.cocktailbar.databinding.FragmentAddFirstCocktailBinding
+import com.summer.cocktailbar.databinding.FragmentCocktailListBinding
 
 
 class CocktailListFragment : Fragment() {
 
+    private var _binding: FragmentCocktailListBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,8 +24,13 @@ class CocktailListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cocktail_list, container, false)
+        _binding = FragmentCocktailListBinding.inflate(inflater, container, false)
+        return _binding?.root
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 
 }
