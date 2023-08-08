@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.fragments.CocktailListFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    <TextView
+        android:id="@+id/tv_cocktail_list_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+
+        android:layout_margin="16dp"
+        android:fontFamily="@font/didact_gothic"
+        android:gravity="center"
+
+        android:text="@string/my_cocktails"
+        android:textSize="36sp"
+
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_cocktail_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="28dp"
+
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        android:layout_gravity="center"
+        app:spanCount="2"
+        tools:listitem="@layout/item_cocktail"
+
+        app:layout_constraintTop_toBottomOf="@id/tv_cocktail_list_title"
+        />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bab_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="40dp"
+        android:layout_gravity="bottom"
+        app:cardCornerRadius="46dp"
+        />
+    <ImageButton
+        android:id="@+id/bt_add"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+
+        android:contentDescription="@string/content_description"
+        android:src="@drawable/ic_add_bt"
+        android:background="@drawable/bt_background"
+
+       android:layout_gravity=""
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        app:layout_anchor="@id/bab_menu"
+        />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
