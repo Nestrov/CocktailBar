@@ -9,4 +9,6 @@
     <string name="add_bt_text">+</string>
     <string name="cocktail_name">cocktail name</string>
     <string name="my_cocktails">My cocktails</string>
+    <string name="bt_save_caption">Save</string>
+    <string name="bt_cancel_caption">Cancel</string>
 </resources>
