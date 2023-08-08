@@ -11,4 +11,7 @@
     <string name="my_cocktails">My cocktails</string>
     <string name="bt_save_caption">Save</string>
     <string name="bt_cancel_caption">Cancel</string>
+    <string name="cocktail_edit_title">Title</string>
+    <string name="cocktail_description">Description</string>
+    <string name="cocktail_recipe">Recipe</string>
 </resources>
