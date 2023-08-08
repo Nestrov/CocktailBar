@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/addFirstCocktailFragment">
+
+    <fragment
+        android:id="@+id/addFirstCocktailFragment"
+        android:name="com.summer.cocktailbar.presentation.fragments.AddFirstCocktailFragment"
+        android:label="fragment_add_first_cocktail"
+        tools:layout="@layout/fragment_add_first_cocktail" />
+</navigation>
