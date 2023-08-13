@@ -32,22 +32,31 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_gravity="center"
-            android:paddingHorizontal="28dp"
+            android:layout_marginTop="8dp"
 
+            android:paddingHorizontal="28dp"
             android:paddingVertical="28dp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintTop_toBottomOf="@id/tv_cocktail_list_title"
-            app:spanCount="2"
 
+            app:spanCount="2"
+            tools:layout_editor_absoluteX="0dp"
             tools:listitem="@layout/item_cocktail" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bab_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
+        android:layout_gravity="bottom|center_horizontal"
+        style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+
         android:minHeight="60dp"
+        app:fabCradleRoundedCornerRadius="30dp"
+        app:backgroundTint="@color/white"
 
         />
 
@@ -57,15 +66,13 @@
         android:layout_height="80dp"
         android:layout_marginTop="16dp"
 
-        android:backgroundTint="@color/bt_background"
         android:clickable="true"
         android:contentDescription="@string/content_description"
-        android:foregroundTint="@color/white"
 
         android:src="@drawable/ic_add_bt"
         app:fabCustomSize="80dp"
-        app:layout_anchor="@id/bab_menu"
-        app:tint="@color/white" />
+        app:layout_anchor="@id/bab_menu" />
+
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

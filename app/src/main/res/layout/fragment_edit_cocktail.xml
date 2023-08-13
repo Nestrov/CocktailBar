@@ -41,49 +41,55 @@
 
     <ScrollView
         android:id="@+id/sv_cocktail_data"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:contentDescription="@string/content_description"
-        android:maxWidth="800dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cv_photo">
+        app:layout_constraintTop_toBottomOf="@id/cv_photo"
+        app:layout_constraintWidth_max="500dp"
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="1000dp"
 
-            android:paddingHorizontal="16dp">
+            android:paddingHorizontal="16dp"
+
+            >
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_name"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
                 android:layout_marginTop="20dp"
                 android:hint="@string/cocktail_edit_title"
-
-                android:textColorHint="@color/red"
                 app:helperText="add title"
 
-                app:helperTextTextColor="@color/red"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+                app:boxCornerRadiusBottomEnd="30dp"
+                app:boxCornerRadiusBottomStart="30dp"
+                app:boxCornerRadiusTopEnd="30dp"
+                app:boxCornerRadiusTopStart="30dp"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_max="500dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/tie_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:background="@drawable/edit_text_frame"
                     android:fontFamily="@font/didact_gothic"
-                    android:gravity="center"
-                    android:textColor="@color/red"
+                    android:gravity="start"
                     android:textSize="16sp"
                     tools:text="@string/cocktail_name" />
 
@@ -91,64 +97,75 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_description"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
                 android:layout_marginTop="20dp"
                 android:hint="@string/cocktail_description"
 
-                android:textColorHint="@color/gray"
                 app:helperText="Optional field"
 
-                app:helperTextTextColor="@color/gray"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+                app:boxCornerRadiusBottomEnd="30dp"
+                app:boxCornerRadiusBottomStart="30dp"
+                app:boxCornerRadiusTopEnd="30dp"
+                app:boxCornerRadiusTopStart="30dp"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/til_name">
+                app:layout_constraintTop_toBottomOf="@+id/til_name"
+                app:layout_constraintWidth_max="500dp"
+                >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/tie_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edit_text_frame_gray"
 
                     android:fontFamily="@font/didact_gothic"
 
 
-                    android:gravity="center"
+                    android:gravity="start"
                     android:minHeight="200dp"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     tools:text="@string/cocktail_name" />
 
+
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_recipe"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
                 android:layout_marginTop="20dp"
                 android:hint="@string/cocktail_recipe"
 
-                android:textColorHint="@color/gray"
                 app:helperText="Optional field"
 
-                app:helperTextTextColor="@color/gray"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+                app:boxCornerRadiusBottomEnd="30dp"
+                app:boxCornerRadiusBottomStart="30dp"
+                app:boxCornerRadiusTopEnd="30dp"
+                app:boxCornerRadiusTopStart="30dp"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/til_description">
+                app:layout_constraintTop_toBottomOf="@+id/til_description"
+                app:layout_constraintWidth_max="500dp"
+                >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/tie_recipe"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edit_text_frame_gray"
-
 
                     android:fontFamily="@font/didact_gothic"
-                    android:gravity="center"
+                    android:gravity="start"
                     android:minHeight="200dp"
                     android:textColor="@color/black"
                     android:textSize="16sp"
@@ -159,24 +176,30 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/bt_save"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="16dp"
 
-                android:background="@drawable/big_bt_background"
+                android:textAppearance="@style/TextAppearance.AppCompat"
                 android:fontFamily="@font/didact_gothic"
-
                 android:gravity="center"
                 android:minHeight="55dp"
-
                 android:text="@string/bt_save_caption"
+                android:textColor="@color/white"
                 android:textSize="24sp"
 
-                app:backgroundTint="@color/bt_background"
+                app:backgroundTint="@color/light_blue"
+                app:cornerRadius="50dp"
                 app:layout_constraintBottom_toTopOf="@id/bt_cancel"
                 app:layout_constraintEnd_toEndOf="parent"
+
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_recipe" />
+                app:layout_constraintTop_toBottomOf="@id/til_recipe"
+                app:strokeColor="@color/light_blue"
+                app:strokeWidth="1dp"
+                app:layout_constraintWidth_max="350dp"
+                />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/bt_cancel"
@@ -184,23 +207,26 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
 
-                android:background="@drawable/big_bt_background_cancel"
 
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                app:cornerRadius="50dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/light_blue"
 
+                android:textAppearance="@style/TextAppearance.AppCompat"
                 android:fontFamily="@font/didact_gothic"
                 android:gravity="center"
-
                 android:minHeight="55dp"
                 android:text="@string/bt_cancel_caption"
-                android:textColor="@color/bt_background"
+                android:textColor="@color/light_blue"
                 android:textSize="24sp"
 
-                app:backgroundTint="@color/bt_background"
-                app:backgroundTintMode="screen"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/bt_save" />
+                app:layout_constraintTop_toBottomOf="@id/bt_save"
+                app:layout_constraintWidth_max="350dp"
+                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

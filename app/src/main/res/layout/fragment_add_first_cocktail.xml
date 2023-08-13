@@ -6,13 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".presentation.fragments.AddFirstCocktailFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-
     <ImageView
         android:id="@+id/iv_welcome_banner"
         android:layout_width="wrap_content"
@@ -82,10 +75,9 @@
         android:layout_height="80dp"
         android:layout_marginTop="16dp"
 
-        android:backgroundTint="@color/bt_background"
+
         android:clickable="true"
         android:contentDescription="@string/content_description"
-        android:foregroundTint="@color/white"
 
         android:src="@drawable/ic_add_bt"
         app:fabCustomSize="80dp"
@@ -93,7 +85,7 @@
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lav_arrow"
-        app:tint="@color/white" />
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
