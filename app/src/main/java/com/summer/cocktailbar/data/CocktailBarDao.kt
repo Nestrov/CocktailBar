@@ -10,10 +10,10 @@ import androidx.room.Update
 interface CocktailBarDao {
 
     @Query("SELECT * FROM Cocktails")
-    suspend fun getCocktails() : List<CocktailDBData>
+    suspend fun getCocktails() : MutableList<CocktailDBData>
 
     @Query("SELECT * FROM Ingredients WHERE cocktailId = :cocktailID")
-    suspend fun getIngredients(cocktailID: Int): List<IngredientDBData>
+    suspend fun getIngredients(cocktailID: Int): MutableList<IngredientDBData>
 
 
     @Insert

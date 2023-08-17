@@ -12,17 +12,18 @@ class CocktailBarRepository(private val cocktailBarDao: CocktailBarDao) {
                 description = it.description,
                 recipe = it.recipe,
                 photoUri = it.photoUri,
-                ingredients = emptyList()
+                ingredients =  mutableListOf()
             )
         }
 
         cocktails.forEach {
-            it.ingredients = cocktailBarDao.getIngredients(it.id).map { ingredient ->
+            it.ingredients = cocktailBarDao.getIngredients(it.id).map {ingredient ->
                 Ingredient(
                     id = ingredient.id,
                     attributes = ingredient.attributes
                 )
-            }
+            }.toMutableList()
+
         }
 
         return cocktails

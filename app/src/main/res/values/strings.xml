@@ -15,4 +15,6 @@
     <string name="cocktail_description">Description</string>
     <string name="cocktail_recipe">Recipe</string>
     <string name="bt_edit_Caption">Edit</string>
+    <string name="bt_add_caption">Add</string>
+    <string name="ingredient">ingredient</string>
 </resources>

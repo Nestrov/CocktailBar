@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/cl_cocktail_item"
+    android:layout_width="wrap_content"
+    android:layout_height="40dp"
+    android:layout_margin="4dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardCornerRadius="30dp"
+
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+
+        android:gravity="center_vertical"
+        >
+
+        <TextView
+            android:id="@+id/tv_ingredient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|start"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="8dp"
+
+            android:fontFamily="@font/didact_gothic"
+            android:gravity="center"
+            tools:text="@string/ingredient"
+            android:textSize="12sp"
+
+            />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/bt_delete"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:fabCustomSize="30dp"
+
+            android:clickable="true"
+            android:contentDescription="@string/content_description"
+            android:src="@drawable/ic_close_bt"
+
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            app:tint="@color/light_blue"
+            app:borderWidth="2dp"
+
+            />
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

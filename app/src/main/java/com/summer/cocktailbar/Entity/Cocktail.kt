@@ -8,5 +8,5 @@ data class Cocktail(
     var description :String,
     var recipe : String,
     var photoUri: String,
-    var ingredients: List<Ingredient>
+    var ingredients: MutableList<Ingredient>
 )
