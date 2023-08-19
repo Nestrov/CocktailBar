@@ -247,7 +247,7 @@
 
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/til_recipe"
-                app:layout_constraintWidth_max="350dp"
+                app:layout_constraintWidth_max="320dp"
                 app:strokeColor="@color/light_blue"
                 app:strokeWidth="1dp" />
 
@@ -273,7 +273,7 @@
 
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/bt_save"
-                app:layout_constraintWidth_max="350dp"
+                app:layout_constraintWidth_max="320dp"
                 app:strokeColor="@color/light_blue"
                 app:strokeWidth="1dp" />
 
