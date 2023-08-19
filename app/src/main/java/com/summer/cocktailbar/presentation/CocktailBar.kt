@@ -24,7 +24,7 @@ class CocktailBar : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[CocktailsViewModel::class.java]
 
         supportFragmentManager.commit {
-            if (viewModel.isEmptyBar())
+            if (viewModel.isEmptyList)
             {
                 replace<AddFirstCocktailFragment>( R.id.fcv_container)
                 setReorderingAllowed(true)

@@ -10,24 +10,24 @@ import androidx.room.Update
 interface CocktailBarDao {
 
     @Query("SELECT * FROM Cocktails")
-    suspend fun getCocktails() : MutableList<CocktailDBData>
+    suspend fun getCocktails() : MutableList<CocktailDbData>
 
     @Query("SELECT * FROM Ingredients WHERE cocktailId = :cocktailID")
-    suspend fun getIngredients(cocktailID: Int): MutableList<IngredientDBData>
+    suspend fun getIngredients(cocktailID: Int): MutableList<IngredientDbData>
 
 
     @Insert
-    suspend fun insertCocktail(cocktailDBData: CocktailDBData)
+    suspend fun insertCocktail(cocktailDBData: CocktailDbData)
     @Insert
-    suspend fun insertIngredient(ingredientDBData: IngredientDBData)
+    suspend fun insertIngredient(ingredientDBData: IngredientDbData)
 
     @Update
-    suspend fun updateCocktail(cocktailDBData: CocktailDBData)
+    suspend fun updateCocktail(cocktailDBData: CocktailDbData)
     @Update
-    suspend fun updateIngredient(ingredientDBData: IngredientDBData)
+    suspend fun updateIngredient(ingredientDBData: IngredientDbData)
 
     @Delete
-    suspend fun deleteCocktail(cocktailDBData: CocktailDBData)
+    suspend fun deleteCocktail(cocktailDBData: CocktailDbData)
     @Delete
-    suspend fun deleteIngredient(ingredientDBData: IngredientDBData)
+    suspend fun deleteIngredient(ingredientDBData: IngredientDbData)
 }

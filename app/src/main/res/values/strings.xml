@@ -16,5 +16,6 @@
     <string name="cocktail_recipe">Recipe</string>
     <string name="bt_edit_Caption">Edit</string>
     <string name="bt_add_caption">Add</string>
-    <string name="ingredient">ingredient</string>
+    <string name="ingredient">limes</string>
+    <string name="hint_recipe">Recipe:\n%1$s</string>
 </resources>

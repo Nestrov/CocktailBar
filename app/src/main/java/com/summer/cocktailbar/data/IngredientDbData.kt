@@ -9,13 +9,13 @@ import androidx.room.PrimaryKey
 @Entity(
     tableName = "Ingredients",
     foreignKeys = [ForeignKey(
-        entity = CocktailDBData::class,
+        entity = CocktailDbData::class,
         childColumns = ["cocktailId"],
         parentColumns = ["id"]
     )],
     indices = [Index(value = ["cocktailId"])]
 )
-data class IngredientDBData(
+data class IngredientDbData(
     @PrimaryKey(autoGenerate = true) var id: Int,
     @ColumnInfo(name = "cocktailId") var cocktailID: Int,
     @ColumnInfo(name = "attributes") var attributes: String

@@ -5,15 +5,15 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [CocktailDBData::class, IngredientDBData::class], version = 2, exportSchema = false)
-abstract class CocktailBarDB:RoomDatabase() {
+@Database(entities = [CocktailDbData::class, IngredientDbData::class], version = 1, exportSchema = false)
+abstract class CocktailBarDb:RoomDatabase() {
     abstract fun cocktailBarDao():CocktailBarDao
 
     companion object {
         @Volatile
-        private  var INSTANCE: CocktailBarDB? = null
+        private  var INSTANCE: CocktailBarDb? = null
 
-        fun getDatabase(context: Context):CocktailBarDB{
+        fun getDatabase(context: Context):CocktailBarDb{
             val tempInstance = INSTANCE
 
             if (tempInstance != null){
@@ -23,7 +23,7 @@ abstract class CocktailBarDB:RoomDatabase() {
             {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                    CocktailBarDB::class.java,
+                    CocktailBarDb::class.java,
                     "cocktail_bar"
                 ).build()
                 INSTANCE = instance

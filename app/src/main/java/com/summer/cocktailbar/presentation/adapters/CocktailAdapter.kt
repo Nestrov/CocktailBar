@@ -6,11 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.summer.cocktailbar.Entity.Cocktail
 import com.summer.cocktailbar.databinding.ItemCocktailBinding
-import com.summer.cocktailbar.data.CocktailDBData
 
 class CocktailAdapter(
 
-    private val onClick : (Cocktail, ItemCocktailBinding )-> Unit
+    private val onClick : (Int , Cocktail, ItemCocktailBinding )-> Unit
 
 ):RecyclerView.Adapter<CocktailAdapter.CocktailViewHolder>() {
     private  var cocktails : List<Cocktail> = emptyList()
@@ -35,7 +34,7 @@ class CocktailAdapter(
         holder.binding.tvCocktailName.text = cocktails[position].name
 
         holder.binding.clCocktailItem.setOnClickListener {
-            onClick( cocktails[position],  holder.binding )
+            onClick( position, cocktails[position],  holder.binding )
         }
     }
 

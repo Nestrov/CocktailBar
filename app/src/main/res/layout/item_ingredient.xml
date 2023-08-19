@@ -5,11 +5,11 @@
 
     android:id="@+id/cl_cocktail_item"
     android:layout_width="wrap_content"
-    android:layout_height="40dp"
+    android:layout_height="48dp"
     android:layout_margin="4dp"
     android:clickable="true"
     android:focusable="true"
-    app:cardCornerRadius="30dp"
+    app:cardCornerRadius="34dp"
 
     >
 
@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|start"
-            android:layout_marginHorizontal="16dp"
+            android:layout_marginHorizontal="8dp"
             android:layout_marginVertical="8dp"
 
             android:fontFamily="@font/didact_gothic"
@@ -41,7 +41,6 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             app:fabCustomSize="30dp"
-
             android:clickable="true"
             android:contentDescription="@string/content_description"
             android:src="@drawable/ic_close_bt"
