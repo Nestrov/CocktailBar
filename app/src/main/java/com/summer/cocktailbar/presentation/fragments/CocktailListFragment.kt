@@ -30,7 +30,7 @@ class CocktailListFragment : Fragment() {
     private var _binding: FragmentCocktailListBinding? = null
     private lateinit var viewModel: CocktailsViewModel
 
-    private  val adapter = CocktailAdapter(){ pos, cocktail, bind ->
+    private  val adapter = CocktailAdapter { pos, cocktail, bind ->
         onItemClick(pos, cocktail, bind)
     }
 
@@ -64,8 +64,6 @@ class CocktailListFragment : Fragment() {
         _binding?.rvCocktailList?.adapter = adapter
 
         _binding?.btAdd?.setOnClickListener {
-            val bundle = Bundle()
-            bundle.putInt( EditCocktailFragment.argIndex, 0)
 
             parentFragmentManager.commit {
                 replace<EditCocktailFragment>(R.id.fcv_container)
@@ -92,8 +90,7 @@ class CocktailListFragment : Fragment() {
         bundle.putInt(CocktailDetailFragment.argIndex, index)
 
         parentFragmentManager.commit {
-            replace<CocktailDetailFragment>(R.id.fcv_container)
-            arguments = bundle
+            replace<CocktailDetailFragment>(R.id.fcv_container, args = bundle)
             setReorderingAllowed(true)
             addToBackStack(CocktailDetailFragment::class.java.simpleName)
         }

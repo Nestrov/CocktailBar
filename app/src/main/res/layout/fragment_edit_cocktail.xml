@@ -158,7 +158,6 @@
                 app:layout_constraintTop_toBottomOf="@id/til_description"
 
 
-
                 tools:listitem="@layout/item_ingredient" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -174,8 +173,8 @@
                 app:backgroundTint="@color/light_blue"
 
                 app:fabCustomSize="30dp"
-                app:layout_constraintStart_toEndOf="@id/rv_ingredients"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/rv_ingredients"
                 app:layout_constraintTop_toBottomOf="@id/til_description"
 
                 />

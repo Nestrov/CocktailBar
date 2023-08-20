@@ -10,7 +10,7 @@ import com.summer.cocktailbar.databinding.FragmentEditIngredientBinding
 class EditIngredientFragment:DialogFragment() {
 
     private var _binding: FragmentEditIngredientBinding? = null
-
+    private var result: Result? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -27,12 +27,21 @@ class EditIngredientFragment:DialogFragment() {
 
         _binding?.btAddIngredient?.setOnClickListener {
 
+            result = Result.Succes()
             dismiss()
         }
 
         _binding?.btCancelIngredient?.setOnClickListener {
+            result = Result.Cancel()
             dismiss()
         }
+    }
 
+    companion object{
+        sealed class Result {
+            class Succes : Result()
+            class Cancel: Result()
+
+        }
     }
 }

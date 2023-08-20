@@ -9,8 +9,13 @@ import com.summer.cocktailbar.databinding.ItemCocktailBinding
 
 import com.summer.cocktailbar.databinding.ItemIngredientBinding
 
-class IngredientAdapter : RecyclerView.Adapter<IngredientAdapter.IngredientViewHolder>() {
+class IngredientAdapter (): RecyclerView.Adapter<IngredientAdapter.IngredientViewHolder>() {
     private  var ingredients : List<Ingredient> = emptyList()
+
+    fun update(data: List<Ingredient>) {
+        ingredients = data
+        notifyDataSetChanged()
+    }
 
     inner class IngredientViewHolder(val binding: ItemIngredientBinding) :
         RecyclerView.ViewHolder(binding.root)

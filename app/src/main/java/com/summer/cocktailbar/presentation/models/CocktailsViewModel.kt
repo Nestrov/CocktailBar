@@ -51,13 +51,15 @@ class CocktailsViewModel(application: Application) :AndroidViewModel(application
     }
 
 
-    fun addCocktail( cocktail: Cocktail ){
-        cocktailList.value.add(cocktail)
+   fun setCocktail(index: Int, coctail:Cocktail){
+       //добавляем коктель в бд
+   }
+
+    fun getCocktailByIndex(index : Int): Cocktail{
+        return cocktailList.value[index].copy()
     }
 
-    fun updateCocktail( cocktail: Cocktail  ){
 
-    }
 
 
 

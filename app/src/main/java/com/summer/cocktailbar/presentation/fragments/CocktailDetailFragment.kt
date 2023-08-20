@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import androidx.lifecycle.ViewModelProvider
+import com.summer.cocktailbar.Entity.Cocktail
 import com.summer.cocktailbar.R
 import com.summer.cocktailbar.databinding.FragmentCocktailDetailBinding
 import com.summer.cocktailbar.presentation.models.CocktailsViewModel
@@ -15,7 +16,7 @@ import com.summer.cocktailbar.presentation.models.CocktailsViewModel
 
 class CocktailDetailFragment : Fragment() {
 
-    private var cocktailIndex: Int = 0
+    private var cocktailIndex: Int = -1
     private var _binding: FragmentCocktailDetailBinding? = null
     private lateinit var viewModel: CocktailsViewModel
 
@@ -31,9 +32,8 @@ class CocktailDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentCocktailDetailBinding.inflate(inflater, container, false)
-
         val bundle = arguments
-        cocktailIndex = bundle?.getInt(argIndex) ?: 0
+        cocktailIndex = bundle?.getInt(argIndex) ?: -1
         return _binding?.root
     }
 
@@ -41,7 +41,11 @@ class CocktailDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val cocktail = viewModel.cocktailList.value[cocktailIndex]
+        val cocktail = if (cocktailIndex == -1)
+            Cocktail()
+        else
+            viewModel.getCocktailByIndex(cocktailIndex)
+
         _binding?.tvName?.text = cocktail.name
         _binding?.tvDescription?.text = cocktail.description
 
@@ -59,8 +63,11 @@ class CocktailDetailFragment : Fragment() {
 
         _binding?.btEdit?.setOnClickListener {
 
+            val bundle = Bundle()
+            bundle.putInt(EditCocktailFragment.argIndex, cocktailIndex)
+
             parentFragmentManager.commit {
-                replace<EditCocktailFragment>(R.id.fcv_container)
+                replace<EditCocktailFragment>(R.id.fcv_container, args = bundle)
                 addToBackStack(EditCocktailFragment::class.java.simpleName)
                 setReorderingAllowed(true)
             }

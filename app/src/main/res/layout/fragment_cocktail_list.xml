@@ -4,11 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.fragments.CocktailListFragment">
+    tools:context=".presentation.fragments.CocktailListFragment"
+
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:maxWidth="450dp"
+        >
 
         <TextView
             android:id="@+id/tv_cocktail_list_title"
@@ -41,24 +46,23 @@
 
             app:spanCount="2"
             tools:layout_editor_absoluteX="0dp"
-            tools:listitem="@layout/item_cocktail" />
+            tools:listitem="@layout/item_cocktail"
+
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bab_menu"
+        style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
-        style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
 
         android:minHeight="60dp"
-        app:fabCradleRoundedCornerRadius="30dp"
         app:backgroundTint="@color/white"
 
-        />
+        app:fabCradleRoundedCornerRadius="30dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/bt_add"

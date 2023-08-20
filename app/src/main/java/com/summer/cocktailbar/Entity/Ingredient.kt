@@ -2,6 +2,6 @@ package com.summer.cocktailbar.Entity
 
 
 data class Ingredient(
-    var id: Int,
-    var attributes: String
+    var id: Int = 0,
+    var attributes: String = ""
 )
