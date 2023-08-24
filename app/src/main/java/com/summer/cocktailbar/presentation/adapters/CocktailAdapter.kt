@@ -12,9 +12,9 @@ class CocktailAdapter(
     private val onClick : (Int , Cocktail, ItemCocktailBinding )-> Unit
 
 ):RecyclerView.Adapter<CocktailAdapter.CocktailViewHolder>() {
-    private  var cocktails : List<Cocktail> = emptyList()
+    private  var cocktails : MutableList<Cocktail> = mutableListOf()
 
-    fun update(data: List<Cocktail>) {
+    fun update(data: MutableList<Cocktail>) {
         cocktails = data
         notifyDataSetChanged()
     }
@@ -37,8 +37,6 @@ class CocktailAdapter(
             onClick( position, cocktails[position],  holder.binding )
         }
     }
-
-
 
 
     inner class CocktailViewHolder(val binding: ItemCocktailBinding) :

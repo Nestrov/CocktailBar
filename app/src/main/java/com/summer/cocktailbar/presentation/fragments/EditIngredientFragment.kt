@@ -5,43 +5,50 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
+import com.summer.cocktailbar.Entity.Ingredient
+import com.summer.cocktailbar.R
 import com.summer.cocktailbar.databinding.FragmentEditIngredientBinding
 
-class EditIngredientFragment:DialogFragment() {
+class EditIngredientFragment(
+    private val onAddIngredient : ( ingredient: Ingredient )-> Unit
+):DialogFragment() {
 
     private var _binding: FragmentEditIngredientBinding? = null
-    private var result: Result? = null
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentEditIngredientBinding.inflate(inflater, container, false)
-        return _binding?.root
-        //return super.onCreateView(inflater, container, savedInstanceState)
 
+        dialog?.window?.setBackgroundDrawable(
+            activity?.getDrawable(R.drawable.fill_dlg_background)
+        )
+        return _binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         _binding?.btAddIngredient?.setOnClickListener {
+            val atr = _binding?.tieIngredient?.text.toString() ?: ""
 
-            result = Result.Succes()
-            dismiss()
+            if ( atr.trim() == ""  ){
+                //ошибка ввода
+            }
+            else{
+                onAddIngredient( Ingredient(0, atr))
+                dismiss()
+            }
         }
 
         _binding?.btCancelIngredient?.setOnClickListener {
-            result = Result.Cancel()
+
             dismiss()
         }
     }
 
-    companion object{
-        sealed class Result {
-            class Succes : Result()
-            class Cancel: Result()
 
-        }
-    }
 }

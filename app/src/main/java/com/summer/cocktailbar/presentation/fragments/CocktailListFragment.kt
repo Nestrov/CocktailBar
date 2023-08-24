@@ -7,12 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.shape.CornerFamily
 import com.google.android.material.shape.CornerSize
 import com.google.android.material.shape.MaterialShapeDrawable
@@ -22,13 +20,15 @@ import com.summer.cocktailbar.databinding.FragmentCocktailListBinding
 import com.summer.cocktailbar.databinding.ItemCocktailBinding
 import com.summer.cocktailbar.presentation.adapters.CocktailAdapter
 import com.summer.cocktailbar.presentation.models.CocktailsViewModel
-import kotlinx.coroutines.launch
+
 
 
 class CocktailListFragment : Fragment() {
 
     private var _binding: FragmentCocktailListBinding? = null
-    private lateinit var viewModel: CocktailsViewModel
+
+    //ItemViewModel by activityViewModels()
+    private val viewModel: CocktailsViewModel by activityViewModels()
 
     private  val adapter = CocktailAdapter { pos, cocktail, bind ->
         onItemClick(pos, cocktail, bind)
@@ -37,7 +37,7 @@ class CocktailListFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this)[CocktailsViewModel::class.java]
+
     }
 
     override fun onCreateView(
@@ -71,18 +71,17 @@ class CocktailListFragment : Fragment() {
                 setReorderingAllowed(true)
             }
         }
-
-
-        viewLifecycleOwner.lifecycleScope.launch{
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED){
-                viewModel.cocktailList.collect{
-                    adapter.update(it)
-                }
-            }
-
-        }
-
     }
+
+    override fun onStart() {
+        super.onStart()
+        viewModel.cocktailList.observe(this) {
+            it?.let {
+                adapter.update(it)
+            }
+        }
+    }
+
 
     private fun onItemClick(index : Int ,  item : Cocktail, bind : ItemCocktailBinding ){
 

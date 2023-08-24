@@ -2,6 +2,7 @@ package com.summer.cocktailbar.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import androidx.lifecycle.ViewModelProvider
@@ -14,14 +15,12 @@ import com.summer.cocktailbar.presentation.models.CocktailsViewModel
 
 class CocktailBar : AppCompatActivity() {
     private lateinit var binding: ActivityCocktailBarBinding
-    private lateinit var viewModel : CocktailsViewModel
+    private val viewModel : CocktailsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCocktailBarBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        viewModel = ViewModelProvider(this)[CocktailsViewModel::class.java]
 
         supportFragmentManager.commit {
             if (viewModel.isEmptyList)

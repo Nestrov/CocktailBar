@@ -9,7 +9,11 @@ import com.summer.cocktailbar.databinding.ItemCocktailBinding
 
 import com.summer.cocktailbar.databinding.ItemIngredientBinding
 
-class IngredientAdapter (): RecyclerView.Adapter<IngredientAdapter.IngredientViewHolder>() {
+class IngredientAdapter (
+    private val onDeleteClick : ( Int )-> Unit,
+
+
+    ): RecyclerView.Adapter<IngredientAdapter.IngredientViewHolder>() {
     private  var ingredients : List<Ingredient> = emptyList()
 
     fun update(data: List<Ingredient>) {
@@ -35,7 +39,7 @@ class IngredientAdapter (): RecyclerView.Adapter<IngredientAdapter.IngredientVie
         holder.binding.tvIngredient.text = ingredients[position].attributes
 
         holder.binding.btDelete.setOnClickListener {
-
+            onDeleteClick(position)
         }
     }
 

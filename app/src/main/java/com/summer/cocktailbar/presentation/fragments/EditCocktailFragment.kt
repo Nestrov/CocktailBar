@@ -5,11 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 
 import androidx.lifecycle.ViewModelProvider
 import com.summer.cocktailbar.Entity.Cocktail
+import com.summer.cocktailbar.Entity.Ingredient
 
 import com.summer.cocktailbar.R
 import com.summer.cocktailbar.databinding.FragmentEditCocktailBinding
@@ -22,13 +24,15 @@ class EditCocktailFragment : Fragment() {
     private var cocktailIndex: Int = -1
     private lateinit var cocktail: Cocktail
     private var _binding: FragmentEditCocktailBinding? = null
-    private lateinit var viewModel: CocktailsViewModel
+    private val viewModel: CocktailsViewModel by activityViewModels()
 
-    private var adapter = IngredientAdapter()
+    private var adapter = IngredientAdapter { ingredientIndex ->
+        onDeleteClick(ingredientIndex)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this)[CocktailsViewModel::class.java]
+
     }
 
     override fun onCreateView(
@@ -47,10 +51,10 @@ class EditCocktailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (cocktailIndex == -1) {
-            cocktail = Cocktail()
+        cocktail = if (cocktailIndex == -1) {
+            Cocktail()
         } else {
-            cocktail = viewModel.getCocktailByIndex(cocktailIndex)
+            viewModel.getCocktailByIndex(cocktailIndex)
         }
 
         _binding?.tilName?.editText?.setText(cocktail.name)
@@ -62,8 +66,12 @@ class EditCocktailFragment : Fragment() {
 
         _binding?.btAddIngredient?.setOnClickListener {
 
+            val fm = parentFragmentManager
+            val fr = EditIngredientFragment{
+                onAddIngredient(it)
+            }
 
-            adapter.update(cocktail.ingredients)
+            fr.show(fm, EditIngredientFragment::class.java.simpleName)
         }
 
         _binding?.btSave?.setOnClickListener {
@@ -72,9 +80,10 @@ class EditCocktailFragment : Fragment() {
             cocktail.description = _binding?.tieDescription?.text.toString()
             cocktail.recipe = _binding?.tieRecipe?.text.toString()
 
-            viewModel.setCocktail(cocktailIndex, cocktail)
+
 
             if (viewModel.isEmptyList) {
+                viewModel.setCocktail(cocktailIndex, cocktail)
                 parentFragmentManager.commit {
                     replace<CocktailListFragment>(
                         R.id.fcv_container,
@@ -83,6 +92,7 @@ class EditCocktailFragment : Fragment() {
                     setReorderingAllowed(true)
                 }
             } else {
+                viewModel.setCocktail(cocktailIndex, cocktail)
                 parentFragmentManager.popBackStack()
             }
         }
@@ -90,6 +100,22 @@ class EditCocktailFragment : Fragment() {
         _binding?.btCancel?.setOnClickListener {
             parentFragmentManager.popBackStack()
         }
+    }
+
+
+    private fun onDeleteClick(index: Int) {
+        cocktail.ingredients[index].isActive = false
+
+        adapter.update(cocktail.ingredients.filter {
+            it.isActive
+        })
+    }
+
+    private fun onAddIngredient(ingredient: Ingredient){
+        cocktail.ingredients.add(ingredient)
+        adapter.update(cocktail.ingredients.filter {
+            it.isActive
+        })
     }
 
 

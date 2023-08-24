@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import androidx.lifecycle.ViewModelProvider
@@ -18,13 +19,10 @@ class CocktailDetailFragment : Fragment() {
 
     private var cocktailIndex: Int = -1
     private var _binding: FragmentCocktailDetailBinding? = null
-    private lateinit var viewModel: CocktailsViewModel
+    private val viewModel: CocktailsViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this)[CocktailsViewModel::class.java]
-
-
     }
 
     override fun onCreateView(

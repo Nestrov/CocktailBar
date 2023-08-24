@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import androidx.lifecycle.ViewModelProvider
@@ -19,12 +20,11 @@ class AddFirstCocktailFragment : Fragment() {
 
 
     private var _binding: FragmentAddFirstCocktailBinding? = null
-    private lateinit var viewModel: CocktailsViewModel
+    //private val viewModel: CocktailsViewModel by activityViewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this)[CocktailsViewModel::class.java]
     }
 
     override fun onCreateView(

@@ -1,128 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
     tools:context="presentation.fragments.EditIngredientFragment"
 
-    android:background="@drawable/fill_dlg_background"
+    app:layout_constraintWidth_min="350dp"
+    app:layout_constraintWidth_max="350dp"
     >
 
-    <TextView
-        android:id="@+id/tv_action_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
 
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        android:layout_marginVertical="24dp"
-
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:fontFamily="@font/didact_gothic"
-        android:gravity="center"
-        android:minHeight="55dp"
-        android:textSize="32sp"
-
-        tools:text="Add ingredient"
-
-        />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_ingredient"
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_marginVertical="24dp"
-        android:hint="@string/cocktail_edit_title"
-        app:helperText="add title"
-
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-
-        app:boxCornerRadiusBottomEnd="30dp"
-        app:boxCornerRadiusBottomStart="30dp"
-        app:boxCornerRadiusTopEnd="30dp"
-        app:boxCornerRadiusTopStart="30dp"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_action_title"
-        app:layout_constraintWidth_max="500dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tie_ingredient"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tv_action_title"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
+            android:layout_marginVertical="24dp"
             android:fontFamily="@font/didact_gothic"
-            android:gravity="start"
-            android:textSize="16sp"
-            tools:text="@string/cocktail_name" />
+            android:gravity="center"
 
-    </com.google.android.material.textfield.TextInputLayout>
+            android:minHeight="55dp"
+
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            android:text="Add ingredient"
+
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_ingredient"
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            app:layout_constraintWidth_min="318dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="24dp"
+            android:hint="@string/cocktail_edit_title"
+
+            app:boxCornerRadiusBottomEnd="30dp"
+
+            app:boxCornerRadiusBottomStart="30dp"
+            app:boxCornerRadiusTopEnd="30dp"
+            app:boxCornerRadiusTopStart="30dp"
+            app:helperText="add title"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_action_title"
+            app:layout_constraintWidth_max="500dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tie_ingredient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:fontFamily="@font/didact_gothic"
+                android:gravity="start"
+                android:textSize="16sp"
+                tools:text="@string/cocktail_name" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/bt_add_ingredient"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_add_ingredient"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
 
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        app:backgroundTint="@color/light_blue"
-        app:cornerRadius="50dp"
-        app:strokeWidth="1dp"
-        app:strokeColor="@color/light_blue"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="24dp"
 
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:fontFamily="@font/didact_gothic"
-        android:gravity="center"
-        android:minHeight="55dp"
-        android:text="@string/bt_add_caption"
-        android:textSize="24sp"
-        android:textColor="@color/white"
-        android:layout_marginVertical="24dp"
+            android:fontFamily="@font/didact_gothic"
+            android:gravity="center"
+            android:minHeight="55dp"
 
-        app:layout_constraintTop_toBottomOf="@id/til_ingredient"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/bt_add_caption"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:backgroundTint="@color/light_blue"
+            app:cornerRadius="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
 
-        app:layout_constraintWidth_max="350dp"
+            app:layout_constraintTop_toBottomOf="@id/til_ingredient"
+            app:layout_constraintWidth_max="350dp"
+            app:strokeColor="@color/light_blue"
 
-        />
+            app:strokeWidth="1dp"
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/bt_cancel_ingredient"
+            />
 
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_cancel_ingredient"
 
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        app:cornerRadius="50dp"
-        app:strokeWidth="1dp"
-        app:strokeColor="@color/light_blue"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
 
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:fontFamily="@font/didact_gothic"
-        android:gravity="center"
-        android:minHeight="55dp"
-        android:text="@string/bt_cancel_caption"
-        android:textColor="@color/light_blue"
-        android:textSize="24sp"
+            android:fontFamily="@font/didact_gothic"
+            android:gravity="center"
 
-        android:layout_marginVertical="8dp"
+            android:minHeight="55dp"
+            android:text="@string/bt_cancel_caption"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textColor="@color/light_blue"
+            android:textSize="24sp"
+            app:cornerRadius="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
 
-        app:layout_constraintTop_toBottomOf="@id/bt_add_ingredient"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
 
-        app:layout_constraintWidth_max="350dp"
+            app:layout_constraintTop_toBottomOf="@id/bt_add_ingredient"
+            app:layout_constraintWidth_max="350dp"
+            app:strokeColor="@color/light_blue"
 
-        />
+            app:strokeWidth="1dp"
+
+            />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
